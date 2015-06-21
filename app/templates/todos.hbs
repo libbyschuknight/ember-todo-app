@@ -3,9 +3,10 @@
     value=newTitle action="createTodo"}}
 
 <section id="main">
+
   <ul id="todo-list">
     {{#each todo in model}}
-      {{todo-item todo=todo}}
+      {{todo-item action="acceptChanges" todo=todo}}
     {{/each}}
   </ul>
 
