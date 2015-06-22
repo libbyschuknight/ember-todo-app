@@ -1,6 +1,6 @@
 up to
-First we have an action, clearCompleted, which gets all the completed todos using filterBy method, which we've seen previously. It then uses the invoke method to delete the todo and save the changes to fixutre data.
 
+todo-item.hbs
 
 # Todo-mvc
 

@@ -7,7 +7,7 @@ export default Ember.Component.extend({
     },
     acceptChanges: function() {
       this.set("isEditing", false);
-      this.sendAction("action", this.get("todo"));
+      this.sendAction("acceptChanges", this.get("todo"));
     },
     deleteTodo: function(todo) {
       this.sendAction("deleteTodo", todo);

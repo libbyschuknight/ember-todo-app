@@ -1,25 +1,27 @@
 import Ember from 'ember';
 
-export default Ember.Component.extend( {
+export default Ember.Component.extend({
   actions: {
     createTodo: function(newTitle) {
       this.set("newTitle", "");
       this.sendAction("createTodo", newTitle);
     },
-    remaining: Ember.computed("model.@each.isCompleted", function(){
-      var model = this.get("model");
-      return model.filterBy("isCompleted", false).get("length");
-    }),
-    inflection: Ember.computed("remaining", function() {
-      var remaining = this.get("remaining");
-      return (remaining === 1) ? "item" : "items";
-    }),
     clearCompleted: function() {
-      var completed = this.get('model').filterBy('isCompleted', true);
+      var model = this.get("model");
+      var completed = model.filterBy('isCompleted', true);
+      console.log(comeplted);
       completed.invoke('deleteRecord');
       completed.invoke('save');
-    },
+    }
   },
+  remaining: Ember.computed("model.@each.isCompleted", function(){
+    var model = this.get("model");
+    return model.filterBy("isCompleted", false).get("length");
+  }),
+  inflection: Ember.computed("remaining", function() {
+    var remaining = this.get("remaining");
+    return (remaining === 1) ? "item" : "items";
+  }),
   hasCompleted: Ember.computed('completed', function() {
     return this.get('completed') > 0;
   }),
@@ -27,4 +29,17 @@ export default Ember.Component.extend( {
     var model = this.get('model');
     return model.filterBy('isCompleted', true).get('length');
   }),
+  allAreDone: Ember.computed("model.@eachisCompleted", function(key, value) {
+    var model = this.get("model");
+    console.log(key + ":" + value);
+    if (value === undefined) {
+      return model.get("length") > 0 && model.isEvery("isCompleted", true);
+    } else {
+        model.setEach("isCompleted", value);
+        model.invoke("save");
+        return value
+    }
+  })
 });
+
+// .property("@each.isCompleted")

@@ -6,16 +6,15 @@ export default Ember.Route.extend({
   },
   actions: {
     createTodo: function(newTitle) {
-      // Create the new Todo model
-      var todo = this.store.createRecord('todo', {
-        title: newTitle,
-        isCompleted: false
-      });
+    // Create the new Todo model
+    var todo = this.store.createRecord('todo', {
+      title: newTitle,
+      isCompleted: false
+    });
 
-
-      // Save the new model
-      todo.save();
-      },
+    // Save the new model
+    todo.save();
+    },
     acceptChanges: function(todo) {
       if (Ember.isEmpty(todo.get("title"))) {
         this.send("deleteTodo", todo);
