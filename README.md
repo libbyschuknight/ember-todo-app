@@ -1,6 +1,4 @@
-up to
-
-todo-item.hbs
+24 June - have everything working except the active route just showing the active items.
 
 # Todo-mvc
 
