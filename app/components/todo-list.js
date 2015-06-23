@@ -9,7 +9,7 @@ export default Ember.Component.extend({
     clearCompleted: function() {
       var model = this.get("model");
       var completed = model.filterBy('isCompleted', true);
-      console.log(comeplted);
+      console.log("clear completed: ", completed);
       completed.invoke('deleteRecord');
       completed.invoke('save');
     }
