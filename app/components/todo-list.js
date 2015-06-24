@@ -37,7 +37,7 @@ export default Ember.Component.extend({
     } else {
         model.setEach("isCompleted", value);
         model.invoke("save");
-        return value
+        return value;
     }
   })
 });
