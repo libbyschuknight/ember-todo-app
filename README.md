@@ -1,10 +1,9 @@
-24 June - have everything working except the active route just showing the active items.
-
 # Todo-mvc
 
 This is me learning how to use Ember JS - tutorial from this link
 
 http://thetechcofounder.com/getting-started-with-ember-js-using-ember-cli/
+
 
 #######################
 This README outlines the details of collaborating on this Ember application.
